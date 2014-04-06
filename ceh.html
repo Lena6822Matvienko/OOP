@@ -1,136 +1,133 @@
-#include <iostream.h>
+#include <iostream>
 #include <string.h>
+#include <cstdlib>
 
 using namespace std;
 
 class ceh
  {
 protected:
-char*name;
-char*nachalnuk;
-int kRobitnukiv;
+char*Name;
+char*Nachalnuk;
+int KilkistRobitnukiv;
 
 public:
 ceh();
 ceh(char*new_name, char*new_nachalnuk, int new_kRobitnukiv);
-ceh(const char* the name, const char*nachalnuk, int the nachalnuk);
+ceh(const ceh &);
 ~ceh();
 
-char*getname();
-void setname(char*);
-char*getnachalnuk()const;
-void setnachalnuk(char*);
-int getkRobitnukiv()const;
-void setkRobitnukiv(int);
+char*getName();
+void setName(char*);
+char*getNachalnuk()const;
+void setNachalnuk(char*);
+int getKilkistRobitnukiv()const;
+void setKilkistRobitnukiv(int);
 void set(char*,char*,int);
 void show()
    {
-cout << "("<< name <<","<< nachalnuk <<","<< nachalnuk <<")";
+cout << "("<< Name <<","<< Nachalnuk <<","<< KilkistRobitnukiv <<")";
    }
  };
 
 ceh::ceh()
     {
-name=new char[11];
-name[0]=0;
-nachalnuk=new char[8];
-nachalnuk[0]=0;
-kRobitnukiv=0;
+Name=new char[11];
+Name[0]=0;
+Nachalnuk=new char[8];
+Nachalnuk[0]=0;
+KilkistRobitnukiv=0;
 cout << "konstruktor bez parametriv" << endl;
     }
 
-ceh::ceh(char*new_name, char*new_nachalnuk, int new_kRobitnukiv)
+ceh::ceh(char*new_Name, char*new_Nachalnuk, int new_KilkistRobitnukiv)
 {
-int n=strlen(new_name);
-name=new char[n+1];
-strncpy(name, new_name, n);
-name[n]=0;
-n=strlen(new_nachalnuk);
-nachalnuk=new char[n+1];
-strncpy(nachalnuk, new_nachalnuk, n);
-nachalnuk[n]=0;
-kRobitnukiv=new_kRobitnukiv;
+int n=strlen(new_Name);
+Name=new char[n+1];
+strncpy(Name, new_Name, n);
+Name[n]=0;
+n=strlen(new_Nachalnuk);
+Nachalnuk=new char[n+1];
+strncpy(Nachalnuk, new_Nachalnuk, n);
+Nachalnuk[n]=0;
+KilkistRobitnukiv=new_KilkistRobitnukiv;
 }
 
 void ceh::show()
 {
-cont << "("<< name <<","<< nachalnuk <<","<< kRobitnukiv <<")";
-}
-
+cont << "("<< Name <<","<< Nachalnuk <<","<< KilkistRobitnukiv <<")";
+} 
+   
 ceh::ceh(const ceh & x)
 {
-int n=strlen(x.name);
-name=new char[n+1];
-strncpy(name,x.name,n);
-name[n]=0;
-n=strlen(x.nachalnuk);
-nachalnuk=new char[n+1];
-strncpy(nachalnuk,x.nachalnuk,n);
-nachalnuk[n]=0;
-n=strlen(x.nkRobitnukiv);
-kRobitnukiv=x.kRobitnukiv;
+int n=strlen(x.Name);
+Name=new char[n+1];
+strncpy(Name,x.Name,n);
+Name[n]=0;
+n=strlen(x.Nachalnuk);
+Nachalnuk=new char[n+1];
+strncpy(Nachalnuk,x.Nachalnuk,n);
+Nachalnuk[n]=0;
+n=strlen(x.KilkistRobitnukiv);
+KilkistRobitnukiv=x.KilkistRobitnukiv;
 }
 
-void ceh::set Name(char*name)
+void ceh::setName(char*Name)
 {
-if (name) delete[]name;
-int n=strlen(new_name);
-name=new char[n+1];
-strncpy(name,new_name,n);
-name[n]=0;
+if (Name) delete[]Name;
+int n=strlen(new_Name);
+Name=new char[n+1];
+strncpy(Name,new_Name,n);
+Name[n]=0;
 }
 
-char*get Name()
+char*getName()
 {
-char*&=new char[strlen(name)+1];
-strcpy(&,name,strlen(name));
-&=[strlen(name)]=0;
-return &;
+char*s=new char[strlen(Name)+1];
+strcpy(s,Name,strlen(Name));
+s[strlen(Name)]=0;
+return s;
 }
 
-void ceh::set Nachalnuk(char*nachalnuk)
+void ceh::setNachalnuk(char*Nachalnuk)
 {
-if (nachalnuk) delete[]nachalnuk;
-int n=strlen(new_nachalnuk);
-nachalnuk=new char[n+1];
-strncpy(nachalnuk,new_nachalnuk,n);
-nachalnuk[n]=0;
+if (Nachalnuk) delete[]Nachalnuk;
+int n=strlen(new_Nachalnuk);
+Nachalnuk=new char[n+1];
+strncpy(Nachalnuk,new_Nachalnuk,n);
+Nachalnuk[n]=0;
 }
 
-char*get Nachalnuk()
+char*getNachalnuk()
 {
-char*&=new char[strlen(nachalnuk)+1];
-strcpy(&,nachalnuk,strlen(nachalnuk));
-&=[strlen(nachalnuk)]=0;
-return &;
+char*v=new char[strlen(Nachalnuk)+1];
+strcpy(v,Nachalnuk,strlen(Nachalnuk));
+v[strlen(Nachalnuk)]=0;
+return v;
 }
 
-void ceh::set KRobitnukiv(char*kRobitnukiv)
+void ceh::setKilkistRobitnukivv(char*KilkistRobitnukiv)
 {
-if (kRobitnukiv) delete[]kRobitnukiv;
-int n=strlen(new_kRobitnukiv);
-kRobitnukiv=new char[n+1];
-strncpy(kRobitnukiv,new_kRobitnukiv,n);
-kRobitnukiv[n]=0;
+if (KilkistRobitnukiv) delete[]KilkistRobitnukiv;
+int n=strlen(new_KilkistRobitnukiv);
+KilkistRobitnukiv=new char[n+1];
+strncpy(KilkistRobitnukiv,new_KilkistRobitnukiv,n);
+KilkistRobitnukiv[n]=0;
 }
 
-char*get KRobitnukiv()
+char*getKilkistRobitnukiv()
 {
-// return kRobitnukiv;
-char*&=new char[strlen(kRobitnukiv)+1];
-strcpy(&,kRobitnukiv,strlen(kRobitnukiv));
-&=[strlen(kRobitnukiv)]=0;
-return &;
+ return KilkistRobitnukiv;
 }
 
 main()
 {
 ceh C1;
-ceh C2(Lena,Sasha,3);
+ceh C2("Lena","Sasha",3);
 c1.show();
 c2.show();
-ceh*p=new ceh;
-ceh(Yana,Vitya,7);
+ceh*p=new ceh();
+ceh("Yana","Vitya",7);
 p -> show();
 system("pause");
 return EXIT_SUCCESS;
