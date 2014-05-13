@@ -6,14 +6,14 @@ using namespace std;
 class Persona
 { protected:
             
-   char* name;              // èìÿ
-   int age;                  // âîçðàñò
-   int state;                 // ïîë
+   char* name;              
+   int age;                  
+   int state;                 
 
 public:     
-Persona();                               //êîíñòðóêòîð áåç ïàðàìåòðîâ
-Persona(char* name,int age,int state);   // êîíñòðóêòîð ç ïàðàìåòðàìè
-Persona(const Persona&);                // êîíñòðóêòîð êîïûþâàííÿ
+Persona();                               
+Persona(char* name,int age,int state);   
+Persona(const Persona&);                
 
 ~Persona();
 char * Getname() ;
